@@ -14,10 +14,6 @@ function isNull(o) {
   return o === null;
 }
 
-function isBool(bool){
-  return typeof bool === 'boolean';
-}
-
 function isDefined(o){
   return o !== undefined;
 }
@@ -129,9 +125,9 @@ function extend (obj) {
     arg = arguments[i];
     for (k in arg) {
       if (arg.hasOwnProperty(k)) {
-        if(isObject(obj[k]) && !isNull(obj[k]) && isObject(arg[k]) && !isArray(arg[k])){
+        if(isObject(obj[k]) && !isNull(obj[k]) && isObject(arg[k])){
           obj[k] = extend({}, obj[k], arg[k]);
-        } else {
+        }else {
           obj[k] = arg[k];
         }
       }
@@ -295,7 +291,6 @@ var utilities = {
   _UA: navigator.userAgent,
   noop: noop,
   isNull: isNull,
-  isBool: isBool,
   isDefined: isDefined,
   isUndefined: isUndefined,
   isObject: isObject,
